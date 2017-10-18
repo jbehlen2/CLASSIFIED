@@ -1,0 +1,44 @@
+
+Part 1:
+
+	1. Control flags are bits that determine the ouput of the control unit,
+	so that the processor knows what to do next. These control flags are typically
+	fed in from the previous stage, giving the control ouputs for the next stage.
+	
+	2. a_inv, b_inv, alu_op, write_enable.
+	
+Part 2:
+
+	1. END IF;
+	
+	2. If you only want to update values at specific times, your control unit
+	needs to be sequential.
+	
+	3. IF(rising_edge(Clock)) THEN...
+	
+	4. 
+	...Process(clock, reset)
+		BEGIN
+		  IF(reset = '1') THEN
+			output <= (OTHERS =>'0');
+		  ELSIF(rising_edge(Clock)) THEN
+			IF(x = "01") THEN
+			  y <= "00";
+			ELSIF(x = "10") THEN
+			  y <= "01";
+			ELSE
+			  y <= "00";
+			END IF;
+		  END IF;
+		END PROCESS;
+		...
+		
+Part 3:
+
+	1. Registry files for accessing values, and the ALU for computing.
+	
+	2. 10
+	
+	3. When reset = 1, the stage is set back to 0 in order to start a new instruction.
+	
+	4. The write enable control signal is set in stage 5.
