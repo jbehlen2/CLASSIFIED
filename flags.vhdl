@@ -5,7 +5,7 @@ ENTITY flags IS
 	PORT(
 		S :IN std_logic_vector(15 downto 0);
 		C14,C15 :IN std_logic;
-		n,c,z,v :OUT std_logic
+		n,c,v,z :OUT std_logic
 	);
 END flags;
 
