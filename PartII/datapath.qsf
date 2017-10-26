@@ -42,14 +42,6 @@ set_global_assignment -name TOP_LEVEL_ENTITY datapath
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 11.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:51:32  OCTOBER 26, 2017"
 set_global_assignment -name LAST_QUARTUS_VERSION 11.1
-set_global_assignment -name VHDL_FILE registers.vhdl
-set_global_assignment -name VHDL_FILE reg16.vhdl
-set_global_assignment -name VHDL_FILE Mux16to1.vhdl
-set_global_assignment -name VHDL_FILE flags.vhdl
-set_global_assignment -name VHDL_FILE Decoder4to16.vhdl
-set_global_assignment -name VHDL_FILE datapath.vhdl
-set_global_assignment -name VHDL_FILE controlUnit.vhdl
-set_global_assignment -name VHDL_FILE alu16bit.vhdl
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
@@ -58,10 +50,27 @@ set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_RUN_TOOL_AUTOMATICALLY ON -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
-set_global_assignment -name VHDL_FILE Mux2to1.vhdl
-set_global_assignment -name VHDL_FILE Mux3to1.vhdl
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VHDL_FILE fullAdder.vhdl
+set_global_assignment -name VHDL_FILE ripCarryAdder.vhdl
+set_global_assignment -name VHDL_FILE MultiMux4to1.vhdl
+set_global_assignment -name VHDL_FILE MultiMux2to1.vhdl
+set_global_assignment -name VHDL_FILE registers.vhdl
+set_global_assignment -name VHDL_FILE reg16.vhdl
+set_global_assignment -name VHDL_FILE Mux16to1.vhdl
+set_global_assignment -name VHDL_FILE flags.vhdl
+set_global_assignment -name VHDL_FILE Decoder4to16.vhdl
+set_global_assignment -name VHDL_FILE datapath.vhdl
+set_global_assignment -name VHDL_FILE controlUnit.vhdl
+set_global_assignment -name VHDL_FILE alu16bit.vhdl
+set_global_assignment -name VHDL_FILE Mux2to1.vhdl
+set_global_assignment -name VHDL_FILE Mux3to1.vhdl
+set_global_assignment -name VHDL_FILE immediate.vhdl
 set_global_assignment -name COMMAND_MACRO_FILE datapathDo.do
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS COMMAND_MACRO_MODE -section_id eda_simulation
+set_global_assignment -name EDA_SIMULATION_RUN_SCRIPT datapathDo.do -section_id eda_simulation
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -9,7 +9,7 @@ ENTITY controlUnit IS
 		clock,reset 	 		:IN std_logic;
 		
 		alu_op,c_select,
-		y_select,extend      	:OUT std_logic_vector(1 downto 0);	--Outputs
+		y_select,extEnd      	:OUT std_logic_vector(1 downto 0);	--Outputs
 		
 		rf_write,b_select,
 		a_Inv,b_Inv,ir_enable,
