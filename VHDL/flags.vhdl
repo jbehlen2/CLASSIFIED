@@ -3,25 +3,17 @@ use ieee.std_logic_1164.all;
 
 ENTITY flags IS
 	PORT(
-		S :IN std_logic_vector(15 downto 0);
+		S 		:IN std_logic_vector(15 downto 0);
 		C14,C15 :IN std_logic;
 		n,c,v,z :OUT std_logic
 	);
 END flags;
 
-ARCHITECTURE behavior of flags IS
---	COMPONENT ripCarryAdder
---		PORT(
---			A,B :IN std_logic_vector(15 downto 0);
---			Cin :IN std_logic;
---			F: OUT std_logic_vector(15 downto 0);
---			C14,C15 :OUT std_logic
---		);
---	END COMPONENT;
+ARCHITECTURE behavior OF flags IS
 	SIGNAL cOut0,cOut1 :std_logic_vector(15 downto 0);
-	SIGNAL fNot :std_logic_vector(15 downto 0);
+	SIGNAL fNot 	   :std_logic_vector(15 downto 0);
+	
 BEGIN
-	--and0: flags PORT MAP(S,C14,C15,n,c,z,v);
 	n <= S(15);
 	c <= C15;
 	fNot <= (NOT S);

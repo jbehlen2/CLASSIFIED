@@ -1,32 +1,30 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-
-entity Decoder4to16 is
-	port (
-		in1: in std_logic_vector(3 downto 0);
-		out1: out std_logic_vector(15 downto 0)
+ENTITY Decoder4to16 IS
+	PORT(
+		in1  :IN std_logic_vector(3 downto 0);
+		out1 :OUT std_logic_vector(15 downto 0)
 	);
-end Decoder4to16;
+END Decoder4to16;
 
-architecture decoder_arc of Decoder4to16 is
-begin
+ARCHITECTURE behavior OF Decoder4to16 IS
 
-	out(0) <= (not in1(3)) and (not in1(2)) and (not in1(1)) and (not in1(0));
-	out(1) <= (not in1(3)) and (not in1(2)) and (not in1(1)) and in1(0);
-	out(2) <= (not in1(3)) and (not in1(2)) and in1(1) and (not in1(0));
-	out(3) <= (not in1(3)) and (not in1(2)) and in1(1) and in1(0);
-	out(4) <= (not in1(3)) and in1(2) and (not in1(1)) and (not in1(0));
-	out(5) <= (not in1(3)) and in1(2) and (not in1(1)) and in1(0);
-	out(6) <= (not in1(3)) and in1(2) and in1(1) and (not in1(0));
-	out(7) <= (not in1(3)) and in1(2) and in1(1) and in1(0);
-	out(8) <= in1(3) and (not in1(2)) and (not in1(1)) and (not in1(0));
-	out(9) <= in1(3) and (not in1(2)) and (not in1(1)) and in1(0);
-	out(10) <= in1(3) and (not in1(2)) and in1(1) and (not in1(0));
-	out(11) <= in1(3) and (not in1(2)) and in1(1) and in1(0);
-	out(12) <= in1(3) and in1(2) and (not in1(1)) and (not in1(0));
-	out(13) <= in1(3) and in1(2) and (not in1(1)) and in1(0);
-	out(14) <= in1(3) and in1(2) and in1(1) and (not in1(0));
-	out(15) <= in1(3) and in1(2) and in1(1) and in1(0);
-
-end decoder_arc;
+BEGIN
+	out(0) <= (NOT in1(3)) AND (NOT in1(2)) AND (NOT in1(1)) AND (NOT in1(0));
+	out(1) <= (NOT in1(3)) AND (NOT in1(2)) AND (NOT in1(1)) AND in1(0);
+	out(2) <= (NOT in1(3)) AND (NOT in1(2)) AND in1(1) AND (NOT in1(0));
+	out(3) <= (NOT in1(3)) AND (NOT in1(2)) AND in1(1) AND in1(0);
+	out(4) <= (NOT in1(3)) AND in1(2) AND (NOT in1(1)) AND (NOT in1(0));
+	out(5) <= (NOT in1(3)) AND in1(2) AND (NOT in1(1)) AND in1(0);
+	out(6) <= (NOT in1(3)) AND in1(2) AND in1(1) AND (NOT in1(0));
+	out(7) <= (NOT in1(3)) AND in1(2) AND in1(1) AND in1(0);
+	out(8) <= in1(3) AND (NOT in1(2)) AND (NOT in1(1)) AND (NOT in1(0));
+	out(9) <= in1(3) AND (NOT in1(2)) AND (NOT in1(1)) AND in1(0);
+	out(10) <= in1(3) AND (NOT in1(2)) AND in1(1) AND (NOT in1(0));
+	out(11) <= in1(3) AND (NOT in1(2)) AND in1(1) AND in1(0);
+	out(12) <= in1(3) AND in1(2) AND (NOT in1(1)) AND (NOT in1(0));
+	out(13) <= in1(3) AND in1(2) AND (NOT in1(1)) AND in1(0);
+	out(14) <= in1(3) AND in1(2) AND in1(1) AND (NOT in1(0));
+	out(15) <= in1(3) AND in1(2) AND in1(1) AND in1(0);
+END behavior;

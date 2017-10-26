@@ -1,96 +1,98 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-Entity controlUnit Is
-	Port(																			--Inputs
-		opCode,Cond 	 		:In std_logic_vector(3 downto 0);
-		opx 				 		:In std_logic_vector(2 downto 0);
+ENTITY controlUnit IS
+	PORT(															--Inputs
+		opCode,Cond 	 		:IN std_logic_vector(3 downto 0);
+		opx 				 	:IN std_logic_vector(2 downto 0);
 		S,N,C,V,Z,mfc,
-		clock,reset 	 		:In std_logic;
+		clock,reset 	 		:IN std_logic;
+		
 		alu_op,c_select,
-		y_select,extend      :Out std_logic_vector(1 downto 0);	--Outputs
+		y_select,extEnd      	:OUT std_logic_vector(1 downto 0);	--Outputs
+		
 		rf_write,b_select,
-		a_inv,b_inv,ir_enable,
+		a_Inv,b_Inv,ir_enable,
 		ma_select,mem_read,
 		mem_write,pc_select,
-		pc_enable,inc_select :Out std_logic
+		pc_enable,Inc_select 	:OUT std_logic
 	);
-End controlUnit;
+END controlUnit;
 
-Architecture behavior of controlUnit Is
-	signal wmfc :std_logic;													--Define signal
-	shared variable stage :integer:= 0;									--and variable
-Begin
-	Process(clock,reset)														--Start process
-		Begin
-			If(rising_edge(clock)) Then
-				If(reset = '1') Then
+ARCHITECTURE behavior OF controlUnit IS
+	SIGNAL wmfc 		  :std_logic;								--Define signal
+	SHARED VARIABLE stage :Integer:= 0;								--and variable
+BEGIN
+	PROCESS(clock,reset)											--Start process
+		BEGIN
+			IF(risINg_edge(clock)) THEN
+				IF(reset = '1') THEN
 					stage := 0;
-				End If;
-				If((mfc = '1' or wmfc = '0')) Then
+				END IF;
+				IF((mfc = '1' or wmfc = '0')) THEN
 					stage := stage mod 5 + 1;
-				End If;
-				If(stage = 1) Then											--Instruction fetch
+				END IF;
+				IF(stage = 1) THEN									--Instruction fetch
 					wmfc <= '1';
 					alu_op <= "00";
 					c_select <= "01";
 					y_select <= "00";
 					rf_write <= '0';
 					b_select <= '0';
-					a_inv <= '0';
-					b_inv <= '0';
-					extend <= "00";
+					a_Inv <= '0';
+					b_Inv <= '0';
+					extEnd <= "00";
 					ir_enable <= '1';
 					ma_select <= '1';
 					mem_read <= '1';
 					mem_write <= '0';
 					pc_select <= '1';
 					pc_enable <= mfc;
-					inc_select <= '0';
-				Elsif(stage = 2) Then										--Register load
+					Inc_select <= '0';
+				ELSIF(stage = 2) THEN								--Register load
 					wmfc <= '0';
 					ir_enable <= '0';
 					mem_read <= '0';
 					pc_enable <= '0';
 					
-				Elsif(stage = 3) Then										--ALU,branch,jump op
-					If(opCode(3) = '0' and opCode(2) = '0') Then		--R-type instructions
-						If(opCode(1) = '0' and opCode(0) = '1') Then
+				ELSIF(stage = 3) THEN										--ALU,branch,jump op
+					IF(opCode(3) = '0' and opCode(2) = '0') THEN			--R-type instructions
+						IF(opCode(1) = '0' and opCode(0) = '1') THEN
 						--This is for JR, just fill in the values for the if statement
-						Elsif(opCode(1) = '0' and opCode(0) = '0') Then
+						ELSIF(opCode(1) = '0' and opCode(0) = '0') THEN
 							--This for the other instructions
-							If(opx = "111") Then								
+							IF(opx = "111") THEN								
 								alu_op <= "00";								--AND instruction
-							Elsif(opx = "110") Then
+							ELSIF(opx = "110") THEN
 								alu_op <= "01";								--OR instruction
-							Elsif(opx = "101") Then
+							ELSIF(opx = "101") THEN
 								alu_op <= "10";								--XOR instruction
-							Elsif(opx = "100") Then
+							ELSIF(opx = "100") THEN
 								alu_op <= "11";								--ADD instruction
-							Elsif(opx = "011") Then
+							ELSIF(opx = "011") THEN
 								alu_op <= "11";								--SUB instruction
-								b_inv <= '1';
-							End If;
-						End If;
-					End If;
-				Elsif(stage = 4) Then										--Memory stage
+								b_Inv <= '1';
+							END IF;
+						END IF;
+					END IF;
+				ELSIF(stage = 4) THEN										--Memory stage
 					--R-type instructions
-					If(opCode(3) = '0' and opCode(2) = '0') Then
-						If(opCode(1) = '0' and opCode(0) = '1') Then
+					IF(opCode(3) = '0' and opCode(2) = '0') THEN
+						IF(opCode(1) = '0' and opCode(0) = '1') THEN
 						--This is for JR, just fill in the values for the if statement
 						--We will have to set some flags here in the future
-						End If;
-					End If;
-				Elsif(stage = 5) Then										--Write back stage
+						END IF;
+					END IF;
+				ELSIF(stage = 5) THEN										--Write back stage
 					--R-type instructions
-					If(opCode(3) = '0' and opCode(2) = '0') Then
-						If(opCode(1) = '0' and opCode(0) = '1') Then
+					IF(opCode(3) = '0' and opCode(2) = '0') THEN
+						IF(opCode(1) = '0' and opCode(0) = '1') THEN
 						--This is for JR, just fill in the values for the if statement
-						Elsif(opCode(1) = '0' and opCode(0) = '0') Then
+						ELSIF(opCode(1) = '0' and opCode(0) = '0') THEN
 							rf_write <= '1';
-						End If;
-					End If;
-				End If;
-			End If;
-	End Process;
-End behavior;
+						END IF;
+					END IF;
+				END IF;
+			END IF;
+	END PROCESS;
+END behavior;
