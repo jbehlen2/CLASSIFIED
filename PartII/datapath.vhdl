@@ -4,8 +4,8 @@ use ieee.std_logic_1164.all;
 ENTITY datapath IS
 	PORT(
 		IR 			   :IN std_logic_vector(23 downto 0);
-		clock,reset    :IN std_logic
-		
+		clock,reset    :IN std_logic;
+		DataD				:OUT std_logic_vector(15 downto 0)
 	);
 END datapath;
 
@@ -98,7 +98,7 @@ ARCHITECTURE behavior OF datapath IS
 		SIGNAL RYIn				:std_logic_vector(15 downto 0);
 		SIGNAL tempMemData	:std_logic_vector(15 downto 0);
 		SIGNAL tempRetAdd		:std_logic_vector(15 downto 0);
-		SIGNAL sSig			:std_logic;
+		SIGNAL sSig				:std_logic;
 		SIGNAL rf_writeSig	:std_logic;
 		SIGNAL a_invSig		:std_logic;
 		SIGNAL b_invSig		:std_logic;
@@ -118,11 +118,11 @@ ARCHITECTURE behavior OF datapath IS
 		SIGNAL pc_selSig			:std_logic;
 		SIGNAL pc_enableSig		:std_logic;
 		SIGNAL inc_selSig			:std_logic;
-		SIGNAL opcodeSig			:std_logic_vector(3 downto 0);
+		SIGNAL opCodeSig			:std_logic_vector(3 downto 0);
 	
 BEGIN
 	sSig <= IR(15);
---	opCodeSig <= IR(23 downto 20);
+	opCodeSig <= IR(23 downto 20);
 	fromControl :controlUnit PORT MAP(opCodeSig,CondSig,opxSig,sSig,nSig,cSig,vSig,
 					         zSig,mfcSig,clock,reset,alu_opSig,
 							 c_selSig,y_selSig,extendSig,rf_writeSig,b_selSig,
@@ -140,12 +140,12 @@ BEGIN
 	Mux2 :Mux2to1 PORT MAP(MuxBIn,immed,b_selSig,outputMuxB);
 	Alu :alu16bit PORT MAP(ALUInA,outputMuxB,alu_opSig,a_invSig,b_invSig,ALUOut,
 				   nSig,cSig,vSig,zSig);
-					 
+						
 	regZ :reg16 PORT MAP(ALUOut,rf_writeSig,reset,clock,MuxYIn);
 	regM :reg16 PORT MAP(MuxBIn,rf_writeSig,reset,clock,outputMemM);
 	tempMemData <= "0000000000000000";
 	tempRetAdd <= "0000000000000000";
 	Mux3 :Mux3to1 PORT MAP(MuxYIn,tempMemData,tempRetAdd,y_selSig,RYIn);
 	regY :reg16 PORT MAP(RYIn,rf_writeSig,reset,clock,outputDataD);
-	--DataD <= outputDataD;
+	DataD <= outputDataD;
 END behavior;

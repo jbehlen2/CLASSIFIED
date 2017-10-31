@@ -1,5 +1,5 @@
 Flow report for datapath
-Thu Oct 26 15:27:49 2017
+Tue Oct 31 11:53:11 2017
 Quartus II 32-bit Version 11.1 Build 173 11/01/2011 SJ Web Edition
 
 
@@ -38,18 +38,18 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +------------------------------------+------------------------------------------+
-; Flow Status                        ; Successful - Thu Oct 26 15:27:49 2017    ;
+; Flow Status                        ; Successful - Tue Oct 31 11:53:11 2017    ;
 ; Quartus II 32-bit Version          ; 11.1 Build 173 11/01/2011 SJ Web Edition ;
 ; Revision Name                      ; datapath                                 ;
 ; Top-level Entity Name              ; datapath                                 ;
 ; Family                             ; Cyclone II                               ;
 ; Device                             ; EP2C15AF484C7                            ;
 ; Timing Models                      ; Final                                    ;
-; Total logic elements               ; 0 / 14,448 ( 0 % )                       ;
-;     Total combinational functions  ; 0 / 14,448 ( 0 % )                       ;
-;     Dedicated logic registers      ; 0 / 14,448 ( 0 % )                       ;
-; Total registers                    ; 0                                        ;
-; Total pins                         ; 26 / 315 ( 8 % )                         ;
+; Total logic elements               ; 1,899 / 14,448 ( 13 % )                  ;
+;     Total combinational functions  ; 1,898 / 14,448 ( 13 % )                  ;
+;     Dedicated logic registers      ; 51 / 14,448 ( < 1 % )                    ;
+; Total registers                    ; 51                                       ;
+; Total pins                         ; 42 / 315 ( 13 % )                        ;
 ; Total virtual pins                 ; 0                                        ;
 ; Total memory bits                  ; 0 / 239,616 ( 0 % )                      ;
 ; Embedded Multiplier 9-bit elements ; 0 / 52 ( 0 % )                           ;
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/26/2017 15:27:41 ;
+; Start date & time ; 10/31/2017 11:52:39 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; datapath            ;
 +-------------------+---------------------+
@@ -73,7 +73,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 238368711530065.150904966108636       ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 93383152991196.150946875801140        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                  ; --            ; --          ; eda_simulation ;
 ; EDA_RUN_TOOL_AUTOMATICALLY          ; On                                    ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_RUN_SCRIPT           ; datapathDo.do                         ; --            ; --          ; eda_simulation ;
@@ -94,12 +94,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 347 MB              ; 00:00:01                           ;
-; Fitter                    ; 00:00:02     ; 1.0                     ; 382 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 293 MB              ; 00:00:01                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 318 MB              ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 261 MB              ; 00:00:00                           ;
-; Total                     ; 00:00:08     ; --                      ; --                  ; 00:00:05                           ;
+; Analysis & Synthesis      ; 00:00:09     ; 1.0                     ; 371 MB              ; 00:00:09                           ;
+; Fitter                    ; 00:00:07     ; 1.0                     ; 387 MB              ; 00:00:07                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 327 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:12     ; 1.0                     ; 433 MB              ; 00:00:11                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 282 MB              ; 00:00:02                           ;
+; Total                     ; 00:00:32     ; --                      ; --                  ; 00:00:31                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -108,11 +108,11 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; cselab5-002      ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; cselab5-002      ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; cselab5-002      ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; cselab5-002      ; Windows 7 ; 6.2        ; x86_64         ;
-; EDA Netlist Writer        ; cselab5-002      ; Windows 7 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis      ; DJ-YounG         ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; DJ-YounG         ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; DJ-YounG         ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; DJ-YounG         ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; DJ-YounG         ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
@@ -121,8 +121,8 @@ applicable agreement for further details.
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off datapath -c datapath
 quartus_fit --read_settings_files=off --write_settings_files=off datapath -c datapath
-quartus_sta datapath -c datapath
 quartus_asm --read_settings_files=off --write_settings_files=off datapath -c datapath
+quartus_sta datapath -c datapath
 quartus_eda --read_settings_files=off --write_settings_files=off datapath -c datapath
 
 

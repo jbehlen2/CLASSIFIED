@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Thu Oct 26 15:27:42 2017
+Analysis & Synthesis Status : Successful - Tue Oct 31 11:52:47 2017
 Quartus II 32-bit Version : 11.1 Build 173 11/01/2011 SJ Web Edition
 Revision Name : datapath
 Top-level Entity Name : datapath
 Family : Cyclone II
-Total logic elements : 0
-    Total combinational functions : 0
-    Dedicated logic registers : 0
-Total registers : 0
-Total pins : 26
+Total logic elements : 1,899
+    Total combinational functions : 1,898
+    Dedicated logic registers : 51
+Total registers : 51
+Total pins : 42
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

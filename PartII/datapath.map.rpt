@@ -1,5 +1,5 @@
 Analysis & Synthesis report for datapath
-Thu Oct 26 15:27:42 2017
+Tue Oct 31 11:52:47 2017
 Quartus II 32-bit Version 11.1 Build 173 11/01/2011 SJ Web Edition
 
 
@@ -14,17 +14,20 @@ Quartus II 32-bit Version 11.1 Build 173 11/01/2011 SJ Web Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
-  9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: Mux2to1:Mux2|LPM_MUX:LPM_MUX_component
- 11. Parameter Settings for User Entity Instance: Mux3to1:Mux3|LPM_MUX:LPM_MUX_component
- 12. Port Connectivity Checks: "Mux3to1:Mux3"
- 13. Port Connectivity Checks: "Reg16:regM"
- 14. Port Connectivity Checks: "registers:regs|Mux16to1:muxT"
- 15. Port Connectivity Checks: "registers:regs|Mux16to1:muxS"
- 16. Port Connectivity Checks: "registers:regs|Decoder4to16:dec1"
- 17. Port Connectivity Checks: "controlUnit:fromControl"
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Parameter Settings for User Entity Instance: Mux2to1:Mux2|LPM_MUX:LPM_MUX_component
+ 13. Parameter Settings for User Entity Instance: Mux3to1:Mux3|LPM_MUX:LPM_MUX_component
+ 14. Parameter Settings for Inferred Entity Instance: controlUnit:fromControl|lpm_divide:Mod0
+ 15. Port Connectivity Checks: "Mux3to1:Mux3"
+ 16. Port Connectivity Checks: "Reg16:regM"
+ 17. Port Connectivity Checks: "registers:regs|Mux16to1:muxT"
+ 18. Port Connectivity Checks: "registers:regs|Mux16to1:muxS"
+ 19. Port Connectivity Checks: "registers:regs|Decoder4to16:dec1"
+ 20. Port Connectivity Checks: "controlUnit:fromControl"
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -50,16 +53,16 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Oct 26 15:27:42 2017    ;
+; Analysis & Synthesis Status        ; Successful - Tue Oct 31 11:52:47 2017    ;
 ; Quartus II 32-bit Version          ; 11.1 Build 173 11/01/2011 SJ Web Edition ;
 ; Revision Name                      ; datapath                                 ;
 ; Top-level Entity Name              ; datapath                                 ;
 ; Family                             ; Cyclone II                               ;
-; Total logic elements               ; 0                                        ;
-;     Total combinational functions  ; 0                                        ;
-;     Dedicated logic registers      ; 0                                        ;
-; Total registers                    ; 0                                        ;
-; Total pins                         ; 26                                       ;
+; Total logic elements               ; 1,899                                    ;
+;     Total combinational functions  ; 1,898                                    ;
+;     Dedicated logic registers      ; 51                                       ;
+; Total registers                    ; 51                                       ;
+; Total pins                         ; 42                                       ;
 ; Total virtual pins                 ; 0                                        ;
 ; Total memory bits                  ; 0                                        ;
 ; Embedded Multiplier 9-bit elements ; 0                                        ;
@@ -156,83 +159,169 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 4      ;
+; Number detected on machine ; 2      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                            ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                  ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------+
-; fullAdder.vhdl                   ; yes             ; User VHDL File               ; C:/Temp/PartII/fullAdder.vhdl                                 ;
-; ripCarryAdder.vhdl               ; yes             ; User VHDL File               ; C:/Temp/PartII/ripCarryAdder.vhdl                             ;
-; MultiMux4to1.vhdl                ; yes             ; User VHDL File               ; C:/Temp/PartII/MultiMux4to1.vhdl                              ;
-; MultiMux2to1.vhdl                ; yes             ; User VHDL File               ; C:/Temp/PartII/MultiMux2to1.vhdl                              ;
-; registers.vhdl                   ; yes             ; User VHDL File               ; C:/Temp/PartII/registers.vhdl                                 ;
-; reg16.vhdl                       ; yes             ; User VHDL File               ; C:/Temp/PartII/reg16.vhdl                                     ;
-; Mux16to1.vhdl                    ; yes             ; User VHDL File               ; C:/Temp/PartII/Mux16to1.vhdl                                  ;
-; flags.vhdl                       ; yes             ; User VHDL File               ; C:/Temp/PartII/flags.vhdl                                     ;
-; Decoder4to16.vhdl                ; yes             ; User VHDL File               ; C:/Temp/PartII/Decoder4to16.vhdl                              ;
-; datapath.vhdl                    ; yes             ; User VHDL File               ; C:/Temp/PartII/datapath.vhdl                                  ;
-; controlUnit.vhdl                 ; yes             ; User VHDL File               ; C:/Temp/PartII/controlUnit.vhdl                               ;
-; alu16bit.vhdl                    ; yes             ; User VHDL File               ; C:/Temp/PartII/alu16bit.vhdl                                  ;
-; Mux2to1.vhdl                     ; yes             ; User Wizard-Generated File   ; C:/Temp/PartII/Mux2to1.vhdl                                   ;
-; Mux3to1.vhdl                     ; yes             ; User Wizard-Generated File   ; C:/Temp/PartII/Mux3to1.vhdl                                   ;
-; immediate.vhdl                   ; yes             ; User VHDL File               ; C:/Temp/PartII/immediate.vhdl                                 ;
-; lpm_mux.tdf                      ; yes             ; Megafunction                 ; c:/altera/11.1/quartus/libraries/megafunctions/lpm_mux.tdf    ;
-; aglobal111.inc                   ; yes             ; Megafunction                 ; c:/altera/11.1/quartus/libraries/megafunctions/aglobal111.inc ;
-; muxlut.inc                       ; yes             ; Megafunction                 ; c:/altera/11.1/quartus/libraries/megafunctions/muxlut.inc     ;
-; bypassff.inc                     ; yes             ; Megafunction                 ; c:/altera/11.1/quartus/libraries/megafunctions/bypassff.inc   ;
-; altshift.inc                     ; yes             ; Megafunction                 ; c:/altera/11.1/quartus/libraries/megafunctions/altshift.inc   ;
-; db/mux_m4e.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Temp/PartII/db/mux_m4e.tdf                                 ;
-; db/mux_o4e.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Temp/PartII/db/mux_o4e.tdf                                 ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                      ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                            ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+; fullAdder.vhdl                   ; yes             ; User VHDL File               ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/fullAdder.vhdl         ;
+; ripCarryAdder.vhdl               ; yes             ; User VHDL File               ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/ripCarryAdder.vhdl     ;
+; MultiMux4to1.vhdl                ; yes             ; User VHDL File               ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/MultiMux4to1.vhdl      ;
+; MultiMux2to1.vhdl                ; yes             ; User VHDL File               ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/MultiMux2to1.vhdl      ;
+; registers.vhdl                   ; yes             ; User VHDL File               ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/registers.vhdl         ;
+; reg16.vhdl                       ; yes             ; User VHDL File               ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/reg16.vhdl             ;
+; Mux16to1.vhdl                    ; yes             ; User VHDL File               ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/Mux16to1.vhdl          ;
+; flags.vhdl                       ; yes             ; User VHDL File               ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/flags.vhdl             ;
+; Decoder4to16.vhdl                ; yes             ; User VHDL File               ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/Decoder4to16.vhdl      ;
+; datapath.vhdl                    ; yes             ; User VHDL File               ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/datapath.vhdl          ;
+; controlUnit.vhdl                 ; yes             ; User VHDL File               ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/controlUnit.vhdl       ;
+; alu16bit.vhdl                    ; yes             ; User VHDL File               ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/alu16bit.vhdl          ;
+; Mux2to1.vhdl                     ; yes             ; User Wizard-Generated File   ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/Mux2to1.vhdl           ;
+; Mux3to1.vhdl                     ; yes             ; User Wizard-Generated File   ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/Mux3to1.vhdl           ;
+; immediate.vhdl                   ; yes             ; User VHDL File               ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/immediate.vhdl         ;
+; lpm_mux.tdf                      ; yes             ; Megafunction                 ; c:/temp/quartus/libraries/megafunctions/lpm_mux.tdf                                                                     ;
+; aglobal111.inc                   ; yes             ; Megafunction                 ; c:/temp/quartus/libraries/megafunctions/aglobal111.inc                                                                  ;
+; muxlut.inc                       ; yes             ; Megafunction                 ; c:/temp/quartus/libraries/megafunctions/muxlut.inc                                                                      ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/temp/quartus/libraries/megafunctions/bypassff.inc                                                                    ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/temp/quartus/libraries/megafunctions/altshift.inc                                                                    ;
+; db/mux_m4e.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/db/mux_m4e.tdf         ;
+; db/mux_o4e.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/db/mux_o4e.tdf         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/temp/quartus/libraries/megafunctions/lpm_divide.tdf                                                                  ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/temp/quartus/libraries/megafunctions/abs_divider.inc                                                                 ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/temp/quartus/libraries/megafunctions/sign_div_unsign.inc                                                             ;
+; db/lpm_divide_qlo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/db/lpm_divide_qlo.tdf  ;
+; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/db/abs_divider_4dg.tdf ;
+; db/alt_u_div_k5f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/db/alt_u_div_k5f.tdf   ;
+; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/db/add_sub_lkc.tdf     ;
+; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/db/add_sub_mkc.tdf     ;
+; db/lpm_abs_0s9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/db/lpm_abs_0s9.tdf     ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-;                                             ;       ;
-; Total combinational functions               ; 0     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 26    ;
-+---------------------------------------------+-------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                                                                                ;
++---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+; Resource                                    ; Usage                                                                                                                        ;
++---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+; Estimated Total logic elements              ; 1,899                                                                                                                        ;
+;                                             ;                                                                                                                              ;
+; Total combinational functions               ; 1898                                                                                                                         ;
+; Logic element usage by number of LUT inputs ;                                                                                                                              ;
+;     -- 4 input functions                    ; 592                                                                                                                          ;
+;     -- 3 input functions                    ; 592                                                                                                                          ;
+;     -- <=2 input functions                  ; 714                                                                                                                          ;
+;                                             ;                                                                                                                              ;
+; Logic elements by mode                      ;                                                                                                                              ;
+;     -- normal mode                          ; 1219                                                                                                                         ;
+;     -- arithmetic mode                      ; 679                                                                                                                          ;
+;                                             ;                                                                                                                              ;
+; Total registers                             ; 51                                                                                                                           ;
+;     -- Dedicated logic registers            ; 51                                                                                                                           ;
+;     -- I/O registers                        ; 0                                                                                                                            ;
+;                                             ;                                                                                                                              ;
+; I/O pins                                    ; 42                                                                                                                           ;
+; Maximum fan-out node                        ; controlUnit:fromControl|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider|alt_u_div_k5f:divider|op_23~62 ;
+; Maximum fan-out                             ; 93                                                                                                                           ;
+; Total fan-out                               ; 5646                                                                                                                         ;
+; Average fan-out                             ; 2.84                                                                                                                         ;
++---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |datapath                  ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 26   ; 0            ; |datapath           ;              ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                  ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                            ; Library Name ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |datapath                                ; 1898 (0)          ; 51 (0)       ; 0           ; 0            ; 0       ; 0         ; 42   ; 0            ; |datapath                                                                                                                      ;              ;
+;    |Reg16:regA|                          ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|Reg16:regA                                                                                                           ;              ;
+;    |Reg16:regB|                          ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|Reg16:regB                                                                                                           ;              ;
+;    |Reg16:regY|                          ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|Reg16:regY                                                                                                           ;              ;
+;    |Reg16:regZ|                          ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|Reg16:regZ                                                                                                           ;              ;
+;    |alu16bit:Alu|                        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|alu16bit:Alu                                                                                                         ;              ;
+;    |controlUnit:fromControl|             ; 1853 (151)        ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|controlUnit:fromControl                                                                                              ;              ;
+;       |lpm_divide:Mod0|                  ; 1702 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|controlUnit:fromControl|lpm_divide:Mod0                                                                              ;              ;
+;          |lpm_divide_qlo:auto_generated| ; 1702 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|controlUnit:fromControl|lpm_divide:Mod0|lpm_divide_qlo:auto_generated                                                ;              ;
+;             |abs_divider_4dg:divider|    ; 1702 (64)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|controlUnit:fromControl|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider                        ;              ;
+;                |alt_u_div_k5f:divider|   ; 1605 (1605)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|controlUnit:fromControl|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider|alt_u_div_k5f:divider  ;              ;
+;                |lpm_abs_0s9:my_abs_num|  ; 33 (33)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|controlUnit:fromControl|lpm_divide:Mod0|lpm_divide_qlo:auto_generated|abs_divider_4dg:divider|lpm_abs_0s9:my_abs_num ;              ;
+;    |registers:regs|                      ; 44 (8)            ; 14 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs                                                                                                       ;              ;
+;       |Mux16to1:muxS|                    ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Mux16to1:muxS                                                                                         ;              ;
+;       |Mux16to1:muxT|                    ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Mux16to1:muxT                                                                                         ;              ;
+;       |Reg16:reg10|                      ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Reg16:reg10                                                                                           ;              ;
+;       |Reg16:reg11|                      ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Reg16:reg11                                                                                           ;              ;
+;       |Reg16:reg12|                      ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Reg16:reg12                                                                                           ;              ;
+;       |Reg16:reg13|                      ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Reg16:reg13                                                                                           ;              ;
+;       |Reg16:reg14|                      ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Reg16:reg14                                                                                           ;              ;
+;       |Reg16:reg1|                       ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Reg16:reg1                                                                                            ;              ;
+;       |Reg16:reg2|                       ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Reg16:reg2                                                                                            ;              ;
+;       |Reg16:reg3|                       ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Reg16:reg3                                                                                            ;              ;
+;       |Reg16:reg4|                       ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Reg16:reg4                                                                                            ;              ;
+;       |Reg16:reg5|                       ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Reg16:reg5                                                                                            ;              ;
+;       |Reg16:reg6|                       ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Reg16:reg6                                                                                            ;              ;
+;       |Reg16:reg7|                       ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Reg16:reg7                                                                                            ;              ;
+;       |Reg16:reg8|                       ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Reg16:reg8                                                                                            ;              ;
+;       |Reg16:reg9|                       ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|registers:regs|Reg16:reg9                                                                                            ;              ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                ;
-+--------+--------------+---------+--------------+--------------+------------------------+-----------------------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance        ; IP Include File             ;
-+--------+--------------+---------+--------------+--------------+------------------------+-----------------------------+
-; Altera ; LPM_MUX      ; N/A     ; N/A          ; N/A          ; |datapath|Mux2to1:Mux2 ; C:/Temp/PartII/Mux2to1.vhdl ;
-; Altera ; LPM_MUX      ; N/A     ; N/A          ; N/A          ; |datapath|Mux3to1:Mux3 ; C:/Temp/PartII/Mux3to1.vhdl ;
-+--------+--------------+---------+--------------+--------------+------------------------+-----------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                                  ;
++--------+--------------+---------+--------------+--------------+------------------------+---------------------------------------------------------------------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance        ; IP Include File                                                                                               ;
++--------+--------------+---------+--------------+--------------+------------------------+---------------------------------------------------------------------------------------------------------------+
+; Altera ; LPM_MUX      ; N/A     ; N/A          ; N/A          ; |datapath|Mux2to1:Mux2 ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/Mux2to1.vhdl ;
+; Altera ; LPM_MUX      ; N/A     ; N/A          ; N/A          ; |datapath|Mux3to1:Mux3 ; C:/Users/behle/Documents/Fall/CSE230/Project/PartII/CLASSIFIED-10-30-17/CLASSIFIED-master/PartII/Mux3to1.vhdl ;
++--------+--------------+---------+--------------+--------------+------------------------+---------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                          ;
++------------------------------------------+--------------------------------------------------+
+; Register name                            ; Reason for Removal                               ;
++------------------------------------------+--------------------------------------------------+
+; controlUnit:fromControl|extend[0,1]      ; Stuck at GND due to stuck port data_in           ;
+; controlUnit:fromControl|a_Inv            ; Stuck at GND due to stuck port data_in           ;
+; controlUnit:fromControl|b_select         ; Stuck at GND due to stuck port data_in           ;
+; controlUnit:fromControl|y_select[0,1]    ; Stuck at GND due to stuck port data_in           ;
+; Reg16:regY|output[1..15]                 ; Merged with Reg16:regY|output[0]                 ;
+; Reg16:regZ|output[1..15]                 ; Merged with Reg16:regZ|output[0]                 ;
+; Reg16:regB|output[1..15]                 ; Merged with Reg16:regB|output[0]                 ;
+; Reg16:regA|output[1..15]                 ; Merged with Reg16:regA|output[0]                 ;
+; registers:regs|Reg16:reg14|output[1..15] ; Merged with registers:regs|Reg16:reg14|output[0] ;
+; registers:regs|Reg16:reg13|output[1..15] ; Merged with registers:regs|Reg16:reg13|output[0] ;
+; registers:regs|Reg16:reg12|output[1..15] ; Merged with registers:regs|Reg16:reg12|output[0] ;
+; registers:regs|Reg16:reg11|output[1..15] ; Merged with registers:regs|Reg16:reg11|output[0] ;
+; registers:regs|Reg16:reg10|output[1..15] ; Merged with registers:regs|Reg16:reg10|output[0] ;
+; registers:regs|Reg16:reg9|output[1..15]  ; Merged with registers:regs|Reg16:reg9|output[0]  ;
+; registers:regs|Reg16:reg8|output[1..15]  ; Merged with registers:regs|Reg16:reg8|output[0]  ;
+; registers:regs|Reg16:reg7|output[1..15]  ; Merged with registers:regs|Reg16:reg7|output[0]  ;
+; registers:regs|Reg16:reg6|output[1..15]  ; Merged with registers:regs|Reg16:reg6|output[0]  ;
+; registers:regs|Reg16:reg5|output[1..15]  ; Merged with registers:regs|Reg16:reg5|output[0]  ;
+; registers:regs|Reg16:reg4|output[1..15]  ; Merged with registers:regs|Reg16:reg4|output[0]  ;
+; registers:regs|Reg16:reg3|output[1..15]  ; Merged with registers:regs|Reg16:reg3|output[0]  ;
+; registers:regs|Reg16:reg2|output[1..15]  ; Merged with registers:regs|Reg16:reg2|output[0]  ;
+; registers:regs|Reg16:reg1|output[1..15]  ; Merged with registers:regs|Reg16:reg1|output[0]  ;
+; controlUnit:fromControl|b_Inv            ; Stuck at GND due to stuck port data_in           ;
+; controlUnit:fromControl|alu_op[0,1]      ; Stuck at GND due to stuck port data_in           ;
+; controlUnit:fromControl|wmfc             ; Lost fanout                                      ;
+; Total Number of Removed Registers = 280  ;                                                  ;
++------------------------------------------+--------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                            ;
++-----------------------------------+---------------------------+----------------------------------------+
+; Register name                     ; Reason for Removal        ; Registers Removed due to This Register ;
++-----------------------------------+---------------------------+----------------------------------------+
+; controlUnit:fromControl|extend[1] ; Stuck at GND              ; controlUnit:fromControl|wmfc           ;
+;                                   ; due to stuck port data_in ;                                        ;
++-----------------------------------+---------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -240,12 +329,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 51    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 18    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 4     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -285,6 +374,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; CBXI_PARAMETER         ; mux_o4e    ; Untyped                                       ;
 ; DEVICE_FAMILY          ; Cyclone II ; Untyped                                       ;
 +------------------------+------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: controlUnit:fromControl|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                           ;
++------------------------+----------------+------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                        ;
+; LPM_WIDTHD             ; 32             ; Untyped                                        ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                        ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                        ;
+; LPM_PIPELINE           ; 0              ; Untyped                                        ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                        ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                        ;
+; CBXI_PARAMETER         ; lpm_divide_qlo ; Untyped                                        ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                        ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                        ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                     ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                   ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                   ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                 ;
++------------------------+----------------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -355,7 +467,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:08     ;
 +----------------+--------------+
 
 
@@ -365,7 +477,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 11.1 Build 173 11/01/2011 SJ Web Edition
-    Info: Processing started: Thu Oct 26 15:27:40 2017
+    Info: Processing started: Tue Oct 31 11:52:38 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off datapath -c datapath
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file fulladder.vhdl
@@ -414,19 +526,18 @@ Info (12021): Found 2 design units, including 1 entities, in source file immedia
     Info (12022): Found design unit 1: immediate-behavior
     Info (12023): Found entity 1: immediate
 Info (12127): Elaborating entity "datapath" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(97): object "outputMemM" assigned a value but never read
-Warning (10541): VHDL Signal Declaration warning at datapath.vhdl(119): used implicit default value for signal "CondSig" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at datapath.vhdl(120): used implicit default value for signal "opxSig" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at datapath.vhdl(121): used implicit default value for signal "mfcSig" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(122): object "c_selSig" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(124): object "ir_enableSig" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(125): object "ma_selSig" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(126): object "mem_readSig" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(127): object "mem_writeSig" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(128): object "pc_selSig" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(129): object "pc_enableSig" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(130): object "inc_selSig" assigned a value but never read
-Warning (10541): VHDL Signal Declaration warning at datapath.vhdl(131): used implicit default value for signal "opcodeSig" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(87): object "outputMemM" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at datapath.vhdl(109): used implicit default value for signal "CondSig" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at datapath.vhdl(110): used implicit default value for signal "opxSig" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at datapath.vhdl(111): used implicit default value for signal "mfcSig" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(112): object "c_selSig" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(114): object "ir_enableSig" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(115): object "ma_selSig" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(116): object "mem_readSig" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(117): object "mem_writeSig" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(118): object "pc_selSig" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(119): object "pc_enableSig" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhdl(120): object "inc_selSig" assigned a value but never read
 Info (12128): Elaborating entity "controlUnit" for hierarchy "controlUnit:fromControl"
 Info (12128): Elaborating entity "immediate" for hierarchy "immediate:imm"
 Info (12128): Elaborating entity "registers" for hierarchy "registers:regs"
@@ -465,20 +576,32 @@ Info (12133): Instantiated megafunction "Mux3to1:Mux3|LPM_MUX:LPM_MUX_component"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_o4e.tdf
     Info (12023): Found entity 1: mux_o4e
 Info (12128): Elaborating entity "mux_o4e" for hierarchy "Mux3to1:Mux3|LPM_MUX:LPM_MUX_component|mux_o4e:auto_generated"
+Info (13005): Duplicate registers merged to single register
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "controlUnit:fromControl|Mod0"
+Info (12130): Elaborated megafunction instantiation "controlUnit:fromControl|lpm_divide:Mod0"
+Info (12133): Instantiated megafunction "controlUnit:fromControl|lpm_divide:Mod0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_qlo.tdf
+    Info (12023): Found entity 1: lpm_divide_qlo
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
+    Info (12023): Found entity 1: abs_divider_4dg
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_k5f.tdf
+    Info (12023): Found entity 1: alt_u_div_k5f
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_lkc.tdf
+    Info (12023): Found entity 1: add_sub_lkc
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_mkc.tdf
+    Info (12023): Found entity 1: add_sub_mkc
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_0s9.tdf
+    Info (12023): Found entity 1: lpm_abs_0s9
+Info (17049): 1 registers lost all their fanouts during netlist optimizations. The first 1 are displayed below.
+    Info (17050): Register "controlUnit:fromControl|wmfc" lost all its fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-Warning (21074): Design contains 26 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "IR[0]"
-    Warning (15610): No output dependent on input pin "IR[1]"
-    Warning (15610): No output dependent on input pin "IR[2]"
-    Warning (15610): No output dependent on input pin "IR[3]"
-    Warning (15610): No output dependent on input pin "IR[4]"
-    Warning (15610): No output dependent on input pin "IR[5]"
-    Warning (15610): No output dependent on input pin "IR[6]"
-    Warning (15610): No output dependent on input pin "IR[7]"
-    Warning (15610): No output dependent on input pin "IR[8]"
-    Warning (15610): No output dependent on input pin "IR[9]"
-    Warning (15610): No output dependent on input pin "IR[10]"
-    Warning (15610): No output dependent on input pin "IR[11]"
+Warning (21074): Design contains 8 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "IR[12]"
     Warning (15610): No output dependent on input pin "IR[13]"
     Warning (15610): No output dependent on input pin "IR[14]"
@@ -487,19 +610,14 @@ Warning (21074): Design contains 26 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "IR[17]"
     Warning (15610): No output dependent on input pin "IR[18]"
     Warning (15610): No output dependent on input pin "IR[19]"
-    Warning (15610): No output dependent on input pin "IR[20]"
-    Warning (15610): No output dependent on input pin "IR[21]"
-    Warning (15610): No output dependent on input pin "IR[22]"
-    Warning (15610): No output dependent on input pin "IR[23]"
-    Warning (15610): No output dependent on input pin "clock"
-    Warning (15610): No output dependent on input pin "reset"
-Info (21057): Implemented 26 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1973 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 26 input pins
-    Info (21059): Implemented 0 output pins
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 41 warnings
-    Info: Peak virtual memory: 347 megabytes
-    Info: Processing ended: Thu Oct 26 15:27:42 2017
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 1931 logic cells
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 22 warnings
+    Info: Peak virtual memory: 371 megabytes
+    Info: Processing ended: Tue Oct 31 11:52:47 2017
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:09
 
 

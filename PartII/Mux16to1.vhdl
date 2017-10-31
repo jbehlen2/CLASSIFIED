@@ -31,6 +31,6 @@ Begin
 				 m WHEN "1100",
 				 n WHEN "1101",
 				 o WHEN "1110",
-				 p WHEN "1111";
+				 "0000000000000000" WHEN OTHERS;
 
 END behavior;

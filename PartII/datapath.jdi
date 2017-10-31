@@ -1,7 +1,7 @@
 <sld_project_info>
   <file_info>
-    <file checksum="0x001AF798" device="EP2C15AF484C7" path="datapath.sof" usercode="0xFFFFFFFF"/>
-    <file checksum="0x1DD97FE6" device="EPCS16" path="datapath.pof" usercode="0x00000000"/>
+    <file checksum="0x00312172" device="EP2C15AF484C7" path="datapath.sof" usercode="0xFFFFFFFF"/>
+    <file checksum="0x1DB6D869" device="EPCS16" path="datapath.pof" usercode="0x00000000"/>
   </file_info>
   <hub_info ir_width="0" node_count="0"/>
   <node_info/>
