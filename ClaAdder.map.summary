@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Nov 15 17:45:34 2017
+Quartus II 32-bit Version : 11.1 Build 173 11/01/2011 SJ Web Edition
+Revision Name : ClaAdder
+Top-level Entity Name : ClaAdder
+Family : Cyclone II
+Total logic elements : 74
+    Total combinational functions : 74
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 51
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
